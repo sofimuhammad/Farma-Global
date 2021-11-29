@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rekam Medis Digital"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        android:id="@+id/line_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/ic_launcher_line"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <EditText
+        android:id="@+id/et_filter_name"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Filter by name"
+        app:layout_constraintEnd_toStartOf="@id/line_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line_horizontal" />
+
+    <View
+        android:id="@+id/line_vertical"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/et_filter_name"
+        app:layout_constraintTop_toBottomOf="@id/line_horizontal" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_pasien"
+        android:layout_width="200dp"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/line_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_filter_name"
+        tools:listitem="@layout/item_row_pasien" />
+
+    <!-- Layout sebelah kanan -->
+    <TextView
+        android:id="@+id/tv_title_pasien"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Nama Pasien"
+        android:gravity="center"
+        android:maxLines="2"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/line_vertical"
+        app:layout_constraintTop_toBottomOf="@id/line_horizontal" />
+
+    <TextView
+        android:id="@+id/tv_no_rm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/line_vertical"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_pasien"
+        tools:text="No. RM" />
+
+    <TextView
+        android:id="@+id/tv_kelamin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/tv_no_rm"
+        app:layout_constraintTop_toBottomOf="@id/tv_no_rm"
+        tools:text="Kelamin" />
+
+    <TextView
+        android:id="@+id/tv_tanggal_lahir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/tv_kelamin"
+        app:layout_constraintTop_toBottomOf="@id/tv_kelamin"
+        tools:text="Tanggal Lahir" />
+
+    <TextView
+        android:id="@+id/tv_alamat"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:maxLines="2"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/tv_tanggal_lahir"
+        app:layout_constraintTop_toBottomOf="@id/tv_tanggal_lahir"
+        tools:text="Alamat" />
+
+    <View
+        android:id="@+id/line_horizontal2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/line_vertical"
+        app:layout_constraintTop_toBottomOf="@id/tv_alamat" />
+
+    <EditText
+        android:id="@+id/et_filter_doc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Filter by name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/line_vertical"
+        app:layout_constraintTop_toBottomOf="@id/line_horizontal2" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_dokumen"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/line_vertical"
+        app:layout_constraintTop_toBottomOf="@id/et_filter_doc" />
+</androidx.constraintlayout.widget.ConstraintLayout>
